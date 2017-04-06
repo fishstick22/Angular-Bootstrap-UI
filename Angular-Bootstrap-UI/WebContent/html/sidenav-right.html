@@ -1,0 +1,22 @@
+<!--  that's strange, moving this into a separate included html
+	  broke the style, but not bootstrap.css? -->
+	  
+<!--div class="col-sm-2 sidenav"-->
+<script>console.log('something is screwy, right sidebar ng-repeat causing some 404')</script>
+<!-- http://stackoverflow.com/questions/34803856/404-image-not-found-on-ng-repeat-in-ionic-angular-for-first-image-only -->
+	<div class="well"
+		ng-repeat="thumbImage in thumbImages">
+		{{thumbImage.name}}
+		<a href="#"
+			~ng-if="demoCtrl.logThis('right sidebar ng-repeat: ' +thumbImage.name) && thumbImage.image" 
+			ng-click="demoCtrl.navToImage('Bootstrap', 'Images', '#thumbnail', thumbImage.image)">
+			<!-- Use ng-src instead. Need that for images to use angular data.
+				 If you don't, your initial src value isn't a valid url, so it causes your browser errors.
+				 But, if you use ng-src instead, angular solves that problem on your behalf. -->
+			<img ng-src="{{'images/' +thumbImage.image}}" class="img-thumbnail" alt="{{thumbImage.name}}" width="304" height="236"></a>	
+	</div>
+<script>console.log('done right sidebar ng-repeat')</script>
+	<div class="well">
+		<p>ADS</p>
+	</div>
+<!--/div-->

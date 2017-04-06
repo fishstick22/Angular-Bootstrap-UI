@@ -1,0 +1,81 @@
+<div ng-controller="PersonController as personCtrl">
+<div class="panel-group">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Maintain Persons</h3></div>
+		<div class="panel-body">
+			<span ng-if="personCtrl.flag != 'edit'">
+				Add New Person</span>
+			<span ng-if="personCtrl.flag == 'edit'">
+				Update Person for ID: {{ personCtrl.person.pid }}</span>
+
+			<div ng-include="'html/person-form.html'"></div>
+
+		</div> <!-- class="panel-body" -->
+		<div class="panel-footer" 
+			ng-class="{
+				'panel-custom-info':    (!personCtrl.flag || personCtrl.flag == 'edit'),
+				'panel-custom-success': (personCtrl.flag && personCtrl.flag != 'edit' && personCtrl.flag != 'failed'),
+				'panel-custom-error':   (personCtrl.flag && personCtrl.flag == 'failed')
+			}">
+			<!-- info state -->
+			<div
+				ng-if="!personCtrl.flag || personCtrl.flag == 'edit'">
+				INFO
+				<span 
+					ng-if="!personCtrl.personEmpty()">
+					{{ personCtrl.person }}</span>
+			</div>
+			<!-- success state -->
+			<div
+				ng-if="personCtrl.flag && personCtrl.flag != 'edit' && personCtrl.flag != 'failed'">
+				SUCCESS
+				<span 
+					ng-if="personCtrl.flag=='created'" 
+					class="msg-success">Person added</span> 
+				<span
+					ng-if="personCtrl.flag=='updated'"
+					class="msg-success">Person updated</span>						
+				<span 
+					ng-if="personCtrl.flag=='deleted'"
+					class="msg-success">Person deleted</span>
+			</div>			
+			<!-- error state -->
+			<div
+				ng-if="personCtrl.flag && personCtrl.flag == 'failed'">
+				ERROR
+				<!-- really should have a specific code for duplicate -->
+				<span
+					ng-if="personCtrl.flag=='failed'" 
+					class="msg-error-on-red">Person action failed!!</span>
+			</div>				
+			
+		</div>
+	</div> <!-- class="panel panel-primary" -->
+	
+	<div class="panel panel-primary">
+		<div class="panel-heading clearfix">
+			<h3 class="panel-title">Persons Data</h3>
+			<div class="input-group">
+			<!--label for="search">Persons Data</label-->
+			<!--  http://stackoverflow.com/questions/24368457/bootstrap-3-adding-controls-to-a-panel-heading-->
+				<input id="person-search-bar" name="search" type="text" class="form-control" placeholder="Search">
+				<div class="input-group-btn">
+					<button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+					<button type="button" name="Action" class="btn btn-primary"
+						~ng-disabled="personForm.$invalid"
+						ng-click="personCtrl.fetchAllPersons()">
+							Load Persons</button>	
+					<button class="btn btn-primary"><i class="glyphicon glyphicon-wrench"></i></button>
+				</div>
+ 			</div>
+
+		</div>
+		<div class="panel-body">
+
+			<div ng-include="'html/person-table.html'"></div>
+		
+		</div> <!-- class="panel-body" -->
+	</div> <!-- class="panel panel-primary" -->
+</div> <!-- class="panel-group" -->
+</div> <!-- ng-controller="PersonController -->	

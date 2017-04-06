@@ -1,0 +1,14 @@
+[
+	{
+		"name" : "Cinque Terre",
+		"image": "cinqueterre.jpg"
+	},
+	{
+		"name" : "New York",
+		"image": "newyork.jpg"
+	},
+	{
+		"name" : "Paris",
+		"image": "paris.jpg"
+	}		
+]

@@ -1,0 +1,65 @@
+<!-- something wonky happens when you ng-include, the $scope gets a parent/child relation
+	 so anything that spans files needs to be handled somehow
+	 http://stackoverflow.com/questions/11412410/angularjs-losing-scope-when-using-ng-include
+	  -->
+	<form name="personForm" method="POST" >
+		<div elem-ready="personCtrl.setPersonFormScope(personForm)"></div>
+		<div class="form-group"><div class="col-sm-3">
+		    <label for="name">Name:</label>
+		    <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name"
+				ng-model="personCtrl.person.name" required />
+			<span class="msg-val"
+				ng-show="personForm.name.$error.required && personForm.name.$dirty">
+				Name is required.</span>
+			<span class="msg-val"
+				ng-show="personForm.name.$dirty && personCtrl.flag != 'edit' && personCtrl.personNameExists()">
+				Person '{{personCtrl.person.name}}' already exists.</span>
+		</div></div>
+
+		<div class="form-group"><div class="col-sm-3">
+		    <label for="location">Location:</label>
+			<input type="text" name="location" class="form-control" id="location" placeholder="Enter Location"
+				ng-model="personCtrl.person.location" required /> 
+			<span class="msg-val"
+				ng-show="personForm.location.$error.required && personForm.location.$dirty" >
+				Location is required.</span>
+		</div></div>
+
+		<div class="form-group"><div class="col-sm-2">
+		    <label for="Status">Status:</label>
+			<select name="status" class="form-control" id="status"
+				ng-model="personCtrl.person.status" required>
+				<option value="M">M</option>
+				<option Value="S">S</option>
+				<option Value="O">O</option>
+			</select> 
+			<span class="msg-val"
+				ng-show="personForm.status.$error.required && personForm.status.$dirty" >
+				Status is required.</span>
+		</div></div>
+		
+		<div class="form-group"><div class="col-sm-4">
+			<label for="Action">Action:</label>
+			<div 
+				ng-if="personCtrl.flag != 'edit'">
+				<button type="button" name="Action" class="btn btn-primary"
+					ng-disabled="personForm.$invalid"
+					ng-click="personCtrl.addPerson()">
+					Add Person</button>
+				<button type="button" class="btn btn-default"
+					ng-click="personCtrl.reset()">
+					Reset</button> 
+			</div>
+			<div 
+				ng-if="personCtrl.flag == 'edit'">
+				<button type="button" name="Action" class="btn btn-primary"
+					ng-disabled="personForm.$invalid"
+					ng-click="personCtrl.updatePersonDetail()">
+				Update Person</button>
+				<button type="button" class="btn btn-default"
+					ng-click="personCtrl.cancelUpdate()">
+					Cancel</button> 
+			</div>
+		</div></div> <!-- end form group -->
+		
+	</form>

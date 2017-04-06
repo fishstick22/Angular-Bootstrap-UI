@@ -1,0 +1,96 @@
+/*
+ http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site
+
+
+body { padding-top: 70px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 100px; }
+}
+*/
+
+/* 
+ https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_webpage&stacked=h
+*/
+/* some extra padding for the fixed navbar */
+body {
+	padding-top: 70px;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) 
+.row.content {
+	height: 450px
+}*/
+
+/* Set gray background color and 100% height 
+.sidenav {
+	padding-top: 20px;
+	background-color: #f1f1f1;
+	height: 100%;
+}*/
+
+.pillleft {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+}
+/* Set black background color, white text and some padding */
+footer {
+	background-color: #555;
+	color: white;
+	padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+	.sidenav {
+		height: auto;
+		padding: 15px;
+	}
+	.row.content {
+		height: auto;
+	}
+}
+
+/* person stuff */
+.msg-val {
+	color: red;
+}
+
+.msg-error-on-red {
+	color: #ffffff;
+}
+
+.msg-success {
+	color: green;
+}
+
+.panel-footer.panel-custom-error {
+	background: red;
+	color: white;
+	/* color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1; */
+}
+
+.panel-footer.panel-custom-success {
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+
+.panel-footer.panel-custom-info {
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
+
+#person-search-bar {
+	width: 200px;
+	float: right;
+}

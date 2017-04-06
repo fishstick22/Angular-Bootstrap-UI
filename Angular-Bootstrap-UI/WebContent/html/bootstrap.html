@@ -1,0 +1,410 @@
+<div class="panel-group">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				Bootstrap Examples: {{demoCtrl.navSelectedSubName}}
+				</h3>
+		</div>
+		<div class="panel-body">
+
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#labels'">
+				<h4>
+					{{demoCtrl.navSelectedSubView}} <span class="label label-default">using
+						'label-default'</span>
+				</h4>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#media'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<!-- Left-aligned -->
+				<div class="media">
+					<div class="media-left">
+						<img src="images/img_avatar1.png" class="media-object"
+							style="width: 60px">
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">
+							John Doe <span class="label label-default">using
+								'media-left'</span>
+						</h4>
+						<p>Lorem ipsum...</p>
+					</div>
+				</div>
+
+				<!-- Right-aligned -->
+				<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading">
+							John Doe <span class="label label-default">using
+								'media-right'</span>
+						</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua.</p>
+					</div>
+					<div class="media-right">
+						<img src="images/img_avatar1.png" class="media-object"
+							style="width: 60px">
+					</div>
+				</div>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#jumbotron'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<div class="jumbotron">
+					<h1>Bootstrap Tutorial</h1>
+					<p>Bootstrap is the most popular HTML, CSS, and JS framework
+						for developing responsive, mobile-first projects on the web.</p>
+				</div>
+				<p>This is some text.</p>
+				<p>This is another text.</p>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#panel'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<h2>Panels with Contextual Classes</h2>
+				<div class="panel-group">
+					<div class="panel panel-default">
+						<div class="panel-heading">Panel with panel-default class</div>
+						<div class="panel-body">Panel Content</div>
+					</div>
+
+					<div class="panel panel-primary">
+						<div class="panel-heading">Panel with panel-primary class</div>
+						<div class="panel-body">Panel Content</div>
+					</div>
+
+					<div class="panel panel-success">
+						<div class="panel-heading">Panel with panel-success class</div>
+						<div class="panel-body">Panel Content</div>
+					</div>
+
+					<div class="panel panel-info">
+						<div class="panel-heading">Panel with panel-info class</div>
+						<div class="panel-body">Panel Content</div>
+					</div>
+
+					<div class="panel panel-warning">
+						<div class="panel-heading">Panel with panel-warning class</div>
+						<div class="panel-body">Panel Content</div>
+					</div>
+
+					<div class="panel panel-danger">
+						<div class="panel-heading">Panel with panel-danger class</div>
+						<div class="panel-body">Panel Content</div>
+					</div>
+				</div>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#well'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<h2>Well Size</h2>
+				<div class="well well-sm">Small Well (well-sm)</div>
+				<div class="well">Normal Well (well)</div>
+				<div class="well well-lg">Large Well (well-lg)</div>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#navbar'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<p>Ensure accessibility by using a &lt;nav> element or, if using
+					a more generic element such as a &lt;div>, add a role="navigation"
+					to every navbar to explicitly identify it as a landmark region for
+					users of assistive technologies.</p>
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<a class="navbar-brand" href="#">WebSiteName</a>
+						</div>
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="#">Home</a></li>
+							<li><a href="#">Page 1</a></li>
+							<li><a href="#">Page 2</a></li>
+							<li><a href="#">Page 3</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#breadcrumb'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<h2>Breadcrumbs</h2>
+				<p>The .breadcrumb class indicates the current page's location
+					within a navigational hierarchy:</p>
+				<ol class="breadcrumb">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Private</a></li>
+					<li><a href="#">Pictures</a></li>
+					<li class="active">Vacation</li>
+				</ol>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#pagination'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<ul class="pagination">
+					<li><a href="#">1</a></li>
+					<li class="active"><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+				</ul>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#alert'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<div class="alert alert-success">
+					<strong>Success!</strong> Indicates a successful or positive
+					action.
+				</div>
+
+				<div class="alert alert-info">
+					<strong>Info!</strong> Indicates a neutral informative change or
+					action.
+				</div>
+
+				<div class="alert alert-warning">
+					<strong>Warning!</strong> Indicates a warning that might need
+					attention.
+				</div>
+
+				<div class="alert alert-danger">
+					<strong>Danger!</strong> Indicates a dangerous or potentially
+					negative action.
+				</div>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#progressbar'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success" role="progressbar"
+						aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+						style="width: 40%">40% Complete (success)</div>
+				</div>
+
+				<div class="progress">
+					<div class="progress-bar progress-bar-info" role="progressbar"
+						aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+						style="width: 50%">50% Complete (info)</div>
+				</div>
+
+				<div class="progress">
+					<div class="progress-bar progress-bar-warning" role="progressbar"
+						aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+						style="width: 60%">60% Complete (warning)</div>
+				</div>
+
+				<div class="progress">
+					<div class="progress-bar progress-bar-danger" role="progressbar"
+						aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+						style="width: 70%">70% Complete (danger)</div>
+				</div>
+
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active"
+						role="progressbar" aria-valuenow="80" aria-valuemin="0"
+						aria-valuemax="100" style="width: 80%">80%
+						(progress-bar-striped active)</div>
+				</div>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#thumbnail'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<table class="table">
+							<tr>
+								<th>Rounded Corners</th>
+								<th>Circle</th>
+							</tr>
+							<tr>
+								<td>The .img-rounded class adds rounded corners to an image
+									(not available in IE8):</td>
+								<td>The .img-circle class shapes the image to a circle (IE8
+									does not support rounded corners):</td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<table class="table">
+							<tr>
+								<td><img src="images/{{demoCtrl.navSelectedImage}}"
+									class="img-responsive img-rounded" alt="{{demoCtrl.navSelectedImage}}"
+									width="304" height="236" /></td>
+								<td><img src="images/{{demoCtrl.navSelectedImage}}"
+									class="img-responsive img-circle" alt="{{demoCtrl.navSelectedImage}}"
+									width="304" height="236" /></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#dropdowns'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<h2>Dropdowns</h2>
+				<p>The .divider class is used to separate links inside the
+					dropdown menu with a thin horizontal line:</p>
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button"
+						data-toggle="dropdown">
+						Tutorials <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="#">HTML</a></li>
+						<li><a href="#">CSS</a></li>
+						<li><a href="#">JavaScript</a></li>
+						<li class="divider"></li>
+						<li><a href="#">About Us</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#collapse'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<p>Note: Use the data-parent attribute to make sure that all
+					collapsible elements under the specified parent will be closed when
+					one of the collapsible item is shown.</p>
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion"
+									href="#collapse1"> Collapsible Group 1</a>
+							</h4>
+						</div>
+						<div id="collapse1" class="panel-collapse collapse in">
+							<div class="panel-body">Lorem ipsum dolor sit amet,
+								consectetur adipisicing elit, sed do eiusmod tempor incididunt
+								ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+								nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+								commodo consequat.</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion"
+									href="#collapse2"> Collapsible Group 2</a>
+							</h4>
+						</div>
+						<div id="collapse2" class="panel-collapse collapse">
+							<div class="panel-body">Lorem ipsum dolor sit amet,
+								consectetur adipisicing elit, sed do eiusmod tempor incididunt
+								ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+								nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+								commodo consequat.</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion"
+									href="#collapse3"> Collapsible Group 3</a>
+							</h4>
+						</div>
+						<div id="collapse3" class="panel-collapse collapse">
+							<div class="panel-body">Lorem ipsum dolor sit amet,
+								consectetur adipisicing elit, sed do eiusmod tempor incididunt
+								ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+								nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+								commodo consequat.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#listgroup'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<ul class="list-group">
+					<li class="list-group-item">First item</li>
+					<li class="list-group-item">Second item</li>
+					<li class="list-group-item">Third item</li>
+				</ul>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#modal'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<!-- Trigger the modal with a button -->
+				<button type="button" class="btn btn-info btn-lg"
+					data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+				<!-- Modal -->
+				<div id="myModal" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Modal Header</h4>
+							</div>
+							<div class="modal-body">
+								<p>Some text in the modal.</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#tooltip'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<div class="container">
+					<h3>Tooltip Example</h3>
+					<p>The data-placement attribute specifies the tooltip position.</p>
+					<ul class="list-inline">
+						<li><a href="#" data-toggle="tooltip" data-placement="top"
+							title="Hooray!">Top</a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="bottom"
+							title="Hooray!">Bottom</a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="left"
+							title="Hooray!">Left</a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="right"
+							title="Hooray!">Right</a></li>
+					</ul>
+				</div>
+				<script>
+					$(document).ready(function(){
+   						$('[data-toggle="tooltip"]').tooltip();   
+				});
+				</script>
+			</div>
+
+			<div ng-show="demoCtrl.navSelectedSubView == '#popover'">
+				<h4>{{demoCtrl.navSelectedSubView}}</h4>
+				<div class="container">
+					<h3>Popover Example</h3>
+					<p>
+						By default, the popover is closed when you click on the element
+						again. <br /> However, you can use the data-trigger="focus"
+						attribute which will close the popover <br /> when clicking
+						outside the element:
+					</p>
+					<ul class="list-inline">
+						<li><a href="#" title="Header" data-toggle="popover"
+							data-trigger="focus" data-placement="top" data-content="Content">Top</a></li>
+						<li><a href="#" title="Header" data-toggle="popover"
+							data-trigger="focus" data-placement="bottom"
+							data-content="Content">Bottom</a></li>
+						<li><a href="#" title="Header" data-toggle="popover"
+							data-trigger="focus" data-placement="left" data-content="Content">Left</a></li>
+						<li><a href="#" title="Header" data-toggle="popover"
+							data-trigger="focus" data-placement="right"
+							data-content="Content">Right</a></li>
+					</ul>
+				</div>
+
+				<script>
+					$(document).ready(function(){
+    					$('[data-toggle="popover"]').popover();   
+					});
+				</script>
+			</div>
+
+		</div> <!-- class="panel-body"-->
+	</div> <!-- class="panel panel-primary"-->
+</div> <!--  class="panel-group"-->

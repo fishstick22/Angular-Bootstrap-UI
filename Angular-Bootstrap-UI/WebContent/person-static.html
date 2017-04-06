@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Spring MVC 4 REST + AngularJS + Bootstrap</title>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<script src="js/lib/jquery-3.1.1.js"></script>
+<script src="js/lib/bootstrap.js"></script>
+<script src="js/lib/angular.js"></script>
+<script src="js/lib/angular-resource.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+  function handleLoad(e) {
+    console.log('Loaded import: ' + e.target.href);
+  }
+  function handleError(e) {
+    console.log('Error loading import: ' + e.target.href);
+  }
+</script>
+
+<link rel="import" href="html/nav.html"
+      onload="handleLoad(event)" onerror="handleError(event)">
+      
+</head>
+<body ng-app="myApp">
+	<div ng-controller="PersonController as personCtrl">
+	
+<script>
+	var link = document.querySelector('link[rel="import"]');
+	var content = link.import;
+
+	// Grab DOM from nav.html's document.
+	var el = content.querySelector('.navbar');
+
+	document.body.appendChild(el.cloneNode(true));
+</script>
+		
+		<div class="container-fluid">
+		<div class="row content">
+ 		<div class="col-sm-12">
+			
+			<div class="jumbotron">
+				<h3>
+					Spring MVC 4 REST + AngularJS + Bootstrap
+					<br/>
+					<small>Person Data Maintenance Demo</small>
+				</h3>
+			</div>
+	
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					Maintain Persons</div>
+				<div 
+					ng-if="personCtrl.flag != 'edit'">
+					<div class="panel-body">
+						Add New Person</div>
+				</div>
+				<div 
+					ng-if="personCtrl.flag == 'edit'">
+					<div class="panel-body">
+						Update Person for ID: {{ personCtrl.person.pid }}</div>
+				</div>
+			</div>
+
+ 		</div> <!-- class="col-sm-12" -->
+		</div> <!-- class="row content"  -->
+ 		<div class="row content">
+ 		<div class="col-sm-12">
+ 		
+			<div class="panel panel-default">
+ 			<div class="panel-body">
+			<form name="personForm" method="POST">
+
+	  				<div class="form-group"><div class="col-sm-4">
+					    <!-- label for="name">Name:</label-->
+					    <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name"
+							ng-model="personCtrl.person.name" required />
+						<span
+	 						ng-show="personForm.name.$error.required" class="msg-val">
+							Name is required.</span>
+  					</div></div>
+
+					<div class="form-group"><div class="col-sm-4">
+					    <!-- label for="location">Location:</label-->
+						<input type="text" name="location" class="form-control" id="location" placeholder="Enter Location"
+							ng-model="personCtrl.person.location" required /> 
+						<span
+							ng-show="personForm.location.$error.required" class="msg-val">
+							Location is required.</span>
+					</div></div>
+
+
+					<div class="form-group"><div class="col-sm-4">
+						<div 
+							ng-if="personCtrl.flag != 'edit'">
+							<button type="button" class="btn btn-primary"
+								ng-click="personCtrl.addPerson()">
+								Add Person</button>
+							<button type="button" class="btn btn-default"
+								ng-click="personCtrl.reset()">
+								Reset</button> 
+						</div>
+						<div 
+							ng-if="personCtrl.flag == 'edit'">
+							<button type="button" class="btn btn-primary"
+								ng-click="personCtrl.updatePersonDetail()">
+							Update Person</button>
+							<button type="button" class="btn btn-default"
+								ng-click="personCtrl.cancelUpdate()">
+								Cancel</button> 
+						</div>
+					</div></div> <!-- end form group -->
+					
+			</form>
+			</div> <!-- class="panel-body" -->
+			</div> <!-- class="panel panel-default" -->
+ 			
+ 		</div> <!-- class="col-sm-12" -->
+		</div> <!-- class="row content"  -->
+
+ 		<div class="row content">
+ 		<div class="col-sm-12">
+ 		
+ 			<div class="panel panel-info">
+				<div class="panel-heading">
+					Panel with panel-info class (make this conditional based on status/outcome)</div>
+				<div class="panel-body">
+				
+					<div ~class="alert"
+						~ng-if="personCtrl.flag && personCtrl.flag != 'edit'" 
+						>
+						<span 
+							~ng-if="personCtrl.flag=='created'" 
+							class="msg-success">Person successfully added.</span> 
+						<span
+							ng-if="personCtrl.flag=='failed'" 
+							class="msg-val">Person already exists.</span>
+						<span
+							ng-if="personCtrl.flag=='updated'"
+							class="msg-success">Person successfully updated.</span>						
+						<span 
+							ng-if="personCtrl.flag=='deleted'"
+							class="msg-success">Person successfully deleted.</span>
+					</div>
+				</div>
+			</div>
+
+
+ 		</div> <!-- class="col-sm-12" -->
+		</div> <!-- class="row content"  -->
+ 		<div class="row content">
+ 		<div class="col-sm-10 col-sm-offset-2">
+ 		
+ 			<hr/>
+
+ 		</div> <!-- class="col-sm-12" -->
+		</div> <!-- class="row content"  -->
+ 		<div class="row content">
+ 		<div class="col-sm-12">
+ 		
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					Persons Data</div>
+				<div class="panel-body">
+					Edit or Delete Person</div>
+			</div>
+
+ 		</div> <!-- class="col-sm-12" -->
+		</div> <!-- class="row content"  -->
+ 		<div class="row content">
+ 		<div class="col-sm-12">
+ 		
+					<div class="">
+						<table class="table table-striped table-bordered table-hover table-condensed">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Location</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="row in personCtrl.persons">
+									<td><span ng-bind="row.pid"></span></td>
+									<td><span ng-bind="row.name"></span></td>
+									<td><span ng-bind="row.location"></span></td>
+									<td>
+										<button type="button" class="btn btn-default"
+											ng-click="personCtrl.deletePerson(row.pid)">
+											Delete</button>
+										<button type="button" class="btn btn-default"
+											ng-click="personCtrl.editPerson(row.pid)">
+											Edit</button>
+										<span
+											ng-if="personCtrl.flag=='updated' && row.pid==personCtrl.updatedId"
+											class="msg-success">&lt;-- successfully updated.</span>
+									</td>
+								</tr>
+								<!-- static data for testing -->
+								<!-- ngRepeat: row in personCtrl.persons --><tr >
+									<td><span >1</span></td>
+									<td><span >Mahesh</span></td>
+									<td><span >Varanasi</span></td>
+									<td>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.deletePerson(row.pid)">
+											Delete</button>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.editPerson(row.pid)">
+											Edit</button>
+										<!-- ngIf: personCtrl.flag=='updated' && row.pid==personCtrl.updatedId -->
+									</td>
+								</tr><!-- end ngRepeat: row in personCtrl.persons --><tr >
+									<td><span >2</span></td>
+									<td><span >Ram</span></td>
+									<td><span >Ayodhya</span></td>
+									<td>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.deletePerson(row.pid)">
+											Delete</button>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.editPerson(row.pid)">
+											Edit</button>
+										<!-- ngIf: personCtrl.flag=='updated' && row.pid==personCtrl.updatedId -->
+									</td>
+								</tr><!-- end ngRepeat: row in personCtrl.persons --><tr >
+									<td><span >14</span></td>
+									<td><span >JD</span></td>
+									<td><span >Hell</span></td>
+									<td>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.deletePerson(row.pid)">
+											Delete</button>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.editPerson(row.pid)">
+											Edit</button>
+										<!-- ngIf: personCtrl.flag=='updated' && row.pid==personCtrl.updatedId -->
+									</td>
+								</tr><!-- end ngRepeat: row in personCtrl.persons --><tr >
+									<td><span >15</span></td>
+									<td><span >Jeff</span></td>
+									<td><span >Purgatory</span></td>
+									<td>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.deletePerson(row.pid)">
+											Delete</button>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.editPerson(row.pid)">
+											Edit</button>
+										<!-- ngIf: personCtrl.flag=='updated' && row.pid==personCtrl.updatedId -->
+									</td>
+								</tr><!-- end ngRepeat: row in personCtrl.persons --><tr >
+									<td><span >17</span></td>
+									<td><span >Janet</span></td>
+									<td><span >Mars</span></td>
+									<td>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.deletePerson(row.pid)">
+											Delete</button>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.editPerson(row.pid)">
+											Edit</button>
+										<!-- ngIf: personCtrl.flag=='updated' && row.pid==personCtrl.updatedId -->
+									</td>
+								</tr><!-- end ngRepeat: row in personCtrl.persons --><tr >
+									<td><span >18</span></td>
+									<td><span >someone</span></td>
+									<td><span >somewhere</span></td>
+									<td>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.deletePerson(row.pid)">
+											Delete</button>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.editPerson(row.pid)">
+											Edit</button>
+										<!-- ngIf: personCtrl.flag=='updated' && row.pid==personCtrl.updatedId -->
+									</td>
+								</tr><!-- end ngRepeat: row in personCtrl.persons --><tr >
+									<td><span >20</span></td>
+									<td><span >Joe</span></td>
+									<td><span >Dalas</span></td>
+									<td>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.deletePerson(row.pid)">
+											Delete</button>
+										<button type="button" class="btn btn-default" ng-click="personCtrl.editPerson(row.pid)">
+											Edit</button>
+										<!-- ngIf: personCtrl.flag=='updated' && row.pid==personCtrl.updatedId -->
+									</td>
+								</tr><!-- end ngRepeat: row in personCtrl.persons -->
+								<!-- end static data -->
+							</tbody>
+							<tfoot></tfoot>
+						</table>
+					</div>
+ 		</div> <!-- class="col-sm-12" -->
+		</div> <!-- class="row content"  -->
+
+		</div> <!-- end bootstrap container> -->
+	</div> <!-- end angular ng-controller -->
+
+</body>
+</html>

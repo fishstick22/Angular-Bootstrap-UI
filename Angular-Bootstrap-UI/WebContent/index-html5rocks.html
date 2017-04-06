@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Angular + SpringBoot Demo -->
+<head>
+<title>Angular &amp; SpringBoot Demo</title>
+<!-- just for kicks, lets bootstrap using html5 imports
+  -- https://www.html5rocks.com/en/tutorials/webcomponents/imports/ 
+  -->
+<script src="js/lib/angular.js"></script>
+<script src="js/lib/angular-resource.js"></script>
+<script src="js/loadhead.js"></script>
+<script src="js/demoApp.js"></script>
+<script src="js/personController.js"></script>
+
+<link id='headLink' rel="import" href="html/head.html"
+      onload="handleLoad(event)" onerror="handleError(event)">
+      
+<!-- actually, html5fails, angular doesn't play nice with this   -->    
+<link id='bodyLink' rel="import" href="html/body.html"
+      onload="handleLoad(event)" onerror="handleError(event)">      
+
+</head>
+<body id='appBody' ng-app="demoApp" onload="makeItSo()">
+
+
+</body>
+</html>

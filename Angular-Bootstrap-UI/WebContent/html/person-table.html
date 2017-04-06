@@ -1,0 +1,32 @@
+		<table class="table table-striped table-bordered table-hover table-condensed">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Location</th>
+					<th>Status</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="row in personCtrl.persons">
+					<td><span ng-bind="row.pid"></span></td>
+					<td><span ng-bind="row.name"></span></td>
+					<td><span ng-bind="row.location"></span></td>
+					<td><span ng-bind="row.status"></span></td>
+					<td>
+						<a href="#" scrollup 
+							ng-click="personCtrl.editPerson(row.pid)">
+							Edit</a> | 
+						<a href="#" scrollup 
+							ng-click="personCtrl.deletePerson(row.pid)">
+							Delete</a> 
+
+						<span
+							ng-if="personCtrl.flag=='updated' && row.pid==personCtrl.updatedId"
+							class="msg-success">&lt;-- successfully updated.</span>
+					</td>
+				</tr>
+			</tbody>
+			<tfoot></tfoot>
+		</table>

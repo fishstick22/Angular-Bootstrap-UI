@@ -1,0 +1,43 @@
+<!-- 
+	Bootstrap Inverted Navigation Bar
+	https://www.w3schools.com/bootstrap/bootstrap_navbar.asp
+ -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#demoNavbar">
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">
+					<img src="images/angularjs-for-header-only.svg" 
+						style="width: 85px;"/></a>
+			</div>
+			<div class="collapse navbar-collapse" id="demoNavbar">
+				<ul class="nav navbar-nav" ng-repeat="navPage in navPages">
+					<li ng-if="!navPage.subHeader"
+						ng-class="{active: (demoCtrl.navSelectedPage == navPage.name)}">
+						<a href="#" ng-click="demoCtrl.navToPage(navPage.name, '')">{{navPage.name}}</a></li>
+						
+					<li ng-if="navPage.subHeader"
+						ng-class="{dropdown: true, active: (demoCtrl.navSelectedPage == navPage.name)}">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{navPage.name}}<b class="caret"></b></a>
+						
+						<ul class="dropdown-menu">
+							<li ng-repeat="subheader in navPage.subHeader">
+							
+								<!--  a ng-href="{{subheader.view}}">{{subheader.name}}</a-->
+								<a href="#" ng-click="demoCtrl.navToPage(navPage.name, subheader.name, subheader.view)">{{subheader.name}}</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+							Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
