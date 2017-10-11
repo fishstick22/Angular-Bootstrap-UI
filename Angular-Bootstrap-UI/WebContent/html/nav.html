@@ -19,7 +19,11 @@
 				<ul class="nav navbar-nav" ng-repeat="navPage in navPages">
 					<li ng-if="!navPage.subHeader"
 						ng-class="{active: (demoCtrl.navSelectedPage == navPage.name)}">
-						<a href="#" ng-click="demoCtrl.navToPage(navPage.name, '')">{{navPage.name}}</a></li>
+						<a href="#" class="hidden-xs"
+							ng-click="demoCtrl.navToPage(navPage.name, '')">{{navPage.name}}</a>
+						<a href="#" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse"
+							ng-click="demoCtrl.navToPage(navPage.name, '')">{{navPage.name}}</a>
+					</li>
 						
 					<li ng-if="navPage.subHeader"
 						ng-class="{dropdown: true, active: (demoCtrl.navSelectedPage == navPage.name)}">
@@ -29,7 +33,11 @@
 							<li ng-repeat="subheader in navPage.subHeader">
 							
 								<!--  a ng-href="{{subheader.view}}">{{subheader.name}}</a-->
-								<a href="#" ng-click="demoCtrl.navToPage(navPage.name, subheader.name, subheader.view)">{{subheader.name}}</a>
+								<a href="#" class="hidden-xs"
+									ng-click="demoCtrl.navToPage(navPage.name, subheader.name, subheader.view)">{{subheader.name}}</a>
+								<a href="#" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse"
+									ng-click="demoCtrl.navToPage(navPage.name, subheader.name, subheader.view)">{{subheader.name}}</a>
+								
 							</li>
 						</ul>
 					</li>

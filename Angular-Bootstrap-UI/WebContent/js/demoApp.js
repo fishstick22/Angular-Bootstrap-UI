@@ -66,6 +66,12 @@ app.controller('DemoController', [ '$scope','$http', function($scope,$http) {
 //		console.log('ERROR getting navPages.json ' +error);
 //	}
 
+	demo.templateURL = function(name){
+		var htmlFilename = name.toLowerCase() +'.html';
+		console.log('templateURL: ' + htmlFilename);
+		return 'html/'+htmlFilename;
+	}
+	
 	demo.navToPage = function(page, subname, subview) {
 		console.log('Inside navToPage, going to ' +page +' ' +subname +' ' +subview);
 		demo.navSelectedPage=page;

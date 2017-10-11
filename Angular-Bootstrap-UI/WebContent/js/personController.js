@@ -10,12 +10,13 @@
  * 
  * var app = angular.module('demoApp', [ 'ngResource','ngRoute' ]);
  */
-//how to supply this in and environment-specific properties file?
-//var dbHost = 'http://IBMT440PC03M14N.caremarkrx.net:8080';
-var dbHost = 'http://localhost:8080';
+//how to supply this in an environment-specific properties file?
+//var serviceHost = 'http://IBMT440PC03M14N.caremarkrx.net:8080';
+//var serviceHost = 'http://localhost:8080';
+var serviceHost = 'http://rizzo.muppets.dnsalias.org:8080';
 
 app.factory('Person', [ '$resource', function($resource) {
-	return $resource(dbHost+'/info/person/:personId', {
+	return $resource(serviceHost+'/SpringBootDemoApp/info/person/:personId', {
 		personId : '@pid'
 	},
 		{
@@ -47,7 +48,7 @@ app.controller('PersonController', [ '$scope', 'Person', function($scope, Person
 	};
 	ob.personNameExists = function(){
 		console.log('Inside personNameExists');
-		exists = false;
+		var exists = false;
 		
 		angular.forEach(ob.persons, function(person, key){
 			angular.forEach(person, function(value, key){
